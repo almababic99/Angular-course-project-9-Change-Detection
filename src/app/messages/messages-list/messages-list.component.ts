@@ -20,12 +20,12 @@ export class MessagesListComponent {
 
   // private destroyRef = inject(DestroyRef);
 
-  // messages = this.messagesService.allMessages;
+  messages = this.messagesService.allMessages;
   // get messages() {
   //   return this.messagesService.allMessages;
   // }
   // messages: string[] = [];
-  messages$ = this.messagesService.messages$;
+  // messages$ = this.messagesService.messages$;
 
   // ngOnInit() {
   //   const subscription = this.messagesService.messages$.subscribe((messages) => {
