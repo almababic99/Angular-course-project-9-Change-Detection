@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, output, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, output, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { MessagesService } from '../messages.service';
 
 @Component({
   selector: 'app-new-message',
@@ -10,8 +11,10 @@ import { FormsModule } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush, // Angular performs change detection on every component when a change occurs, either from a user action (such as a click) or from an event (like a timer or HTTP request).
 })
 export class NewMessageComponent {
-  add = output<string>();
-  enteredText = signal('');
+  // add = output<string>();
+  private messagesService = inject(MessagesService);
+  // enteredText = signal('');
+  enteredText = '';
 
   get debugOutput() {
     console.log('[NewMessage] "debugOutput" binding re-evaluated.');
@@ -19,7 +22,10 @@ export class NewMessageComponent {
   }
 
   onSubmit() {
-    this.add.emit(this.enteredText());
-    this.enteredText.set('');
+    // this.add.emit(this.enteredText());
+    // this.messagesService.addMessage(this.enteredText());
+    this.messagesService.addMessage(this.enteredText);
+    // this.enteredText.set('');
+    this.enteredText = '';
   }
 }

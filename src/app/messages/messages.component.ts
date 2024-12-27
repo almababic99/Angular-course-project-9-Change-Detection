@@ -19,14 +19,14 @@ import { NewMessageComponent } from './new-message/new-message.component';
   // In MessagesComponent, OnPush ensures Angular only checks the component when the messages signal updates or events occur (e.g., adding a message). This reduces unnecessary checks and improves performance.
 })
 export class MessagesComponent {
-  messages = signal<string[]>([]);
+  // messages = signal<string[]>([]);
 
   get debugOutput() {
     console.log('[Messages] "debugOutput" binding re-evaluated.');
     return 'Messages Component Debug Output';
   }
 
-  onAddMessage(message: string) {
-    this.messages.update((oldMessages) => [...oldMessages, message]);
-  }
+  // onAddMessage(message: string) {
+  //   this.messages.update((oldMessages) => [...oldMessages, message]);
+  // }
 }
